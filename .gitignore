@@ -60,3 +60,7 @@ __pycache__/
 
 # Allowlist local dockerfile
 !Dockerfile.local
+
+# Google calendar credentials files
+credentials.json
+token.json

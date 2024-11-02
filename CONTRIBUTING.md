@@ -18,7 +18,7 @@ To submit changes to the project, follow these steps:
 1. **Fork the Repository**: Start by forking the repository to your own GitHub account.
 2. **Clone Your Fork**: Clone the forked repository to your local machine.
 ```bash
-   git clone https://github.com/francisjgarcia/tests.git
+   git clone https://github.com/francisjgarcia/football-calendar.git
 ```
 3. **Create a New Branch**: Create a new branch for your changes.
 ```bash

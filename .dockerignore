@@ -39,3 +39,7 @@ out
 # Ignore container configuration files
 docker/compose.yml
 docker/Dockerfile
+
+# Ignore Google calendar credentials files
+credentials.json
+token.json

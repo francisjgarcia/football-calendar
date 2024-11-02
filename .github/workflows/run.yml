@@ -1,0 +1,105 @@
+# .github/workflows/run.yml
+name: Run application
+
+on:
+  schedule:
+    - cron: 0 6 * * *
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+
+defaults:
+  run:
+    shell: bash
+    working-directory: .
+
+jobs:
+  setup:
+    name: Setup environment
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref == 'refs/heads/main' && 'production' || startsWith(github.ref, 'refs/tags/v') && 'production' }}
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v')
+
+    outputs:
+      environment: ${{ steps.get_variables.outputs.environment }}
+      tag_version: ${{ steps.get_variables.outputs.tag_version }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set environment output
+        id: get_variables
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_BRANCH: ${{ github.ref }}
+        run: |
+          echo "environment=${{ github.ref == 'refs/heads/main' && 'production' || startsWith(github.ref, 'refs/tags/v') && 'production' }}" >> $GITHUB_OUTPUT
+          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            TAG_VERSION="${GITHUB_REF#refs/tags/}"
+          else
+            TAG_VERSION=$(git tag -l | sort -V | tail -n 1)
+          fi
+          echo "tag_version=$TAG_VERSION" >> $GITHUB_OUTPUT
+
+      - name: Create setup summary
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_BRANCH: ${{ github.ref }}
+          ENVIRONMENT: ${{ steps.get_variables.outputs.environment }}
+          TAG_VERSION: ${{ steps.get_variables.outputs.tag_version }}
+          APPLICATION_URL: ${{ steps.get_variables.outputs.application_url }}
+        run: |
+          echo "## Setup Summary" >> $GITHUB_STEP_SUMMARY
+          echo "### Output variables" >> $GITHUB_STEP_SUMMARY
+          echo "- Environment: ${{ env.ENVIRONMENT }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Tag version: [${{ env.TAG_VERSION }}](https://github.com/${{ env.GITHUB_REPOSITORY }}/releases/tag/${{ env.TAG_VERSION }})" >> $GITHUB_STEP_SUMMARY
+          if [ ! -z ${{ env.APPLICATION_URL }} ]; then
+            echo "- Application URL: ${{ env.APPLICATION_URL }}" >> $GITHUB_STEP_SUMMARY
+          fi
+
+  run:
+    name: Run application
+    needs: [setup, push, release]
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ needs.setup.outputs.environment }}
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3.3.0
+        env:
+          REPOSITORY_OWNER: ${{ github.repository_owner }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          registry: ghcr.io
+          username: ${{ env.REPOSITORY_OWNER }}
+          password: ${{ env.GITHUB_TOKEN }}
+
+      - name: Docker run application
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          TAG_VERSION: ${{ needs.setup.outputs.tag_version }}
+          ALLOWED_TEAMS: ${{ vars.ALLOWED_TEAMS }}
+          ALLOWED_COMPETITIONS: ${{ vars.ALLOWED_COMPETITIONS }}
+          SPECIAL_COMPETITIONS: ${{ vars.SPECIAL_COMPETITIONS }}
+          SPECIAL_CHANNELS: ${{ vars.SPECIAL_CHANNELS }}
+          GOOGLE_TOKEN: ${{ secrets.GOOGLE_TOKEN }}
+          GOOGLE_CALENDAR_NAME: ${{ vars.GOOGLE_CALENDAR_NAME }}
+        run: |
+          docker run --rm \
+            -e TZ=Europe/Madrid \
+            -e ALLOWED_TEAMS=${{ env.ALLOWED_TEAMS }} \
+            -e ALLOWED_COMPETITIONS=${{ env.ALLOWED_COMPETITIONS }} \
+            -e SPECIAL_COMPETITIONS=${{ env.SPECIAL_COMPETITIONS }} \
+            -e SPECIAL_CHANNELS=${{ env.SPECIAL_CHANNELS }} \
+            -e GOOGLE_TOKEN=${{ env.GOOGLE_TOKEN }} \
+            -e GOOGLE_CALENDAR_NAME=${{ env.GOOGLE_CALENDAR_NAME }} \
+          ghcr.io/${{ env.GITHUB_REPOSITORY }}:${{ env.TAG_VERSION }}
