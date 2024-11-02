@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.0.3](https://github.com/francisjgarcia/football-calendar/releases/v1.0.3) (2024-11-02)
+* [patch] Merge pull request #4 from francisjgarcia/development @francisjgarcia ([#913d001](https://github.com/francisjgarcia/football-calendar/commit/913d001b2952209bf413b62352a35db52bb7b007))
+* ci: Delete wrong needs jobs to run workflow @francisjgarcia ([#6d30ba2](https://github.com/francisjgarcia/football-calendar/commit/6d30ba29c3beb4891552ef695b7bec26a53a8178))
+
+
 ## [v1.0.2](https://github.com/francisjgarcia/football-calendar/releases/v1.0.2) (2024-11-02)
 * [patch] Merge pull request #3 from francisjgarcia/development @francisjgarcia ([#796f94c](https://github.com/francisjgarcia/football-calendar/commit/796f94ccc5de6b23c15af0fe3936daf5540eb3cd))
 * ci: Change double quotes to single ones @francisjgarcia ([#76f8445](https://github.com/francisjgarcia/football-calendar/commit/76f844541eac20b21467a532914470efc46f1718))
