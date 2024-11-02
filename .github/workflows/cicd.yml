@@ -493,11 +493,11 @@ jobs:
           GOOGLE_CALENDAR_NAME: ${{ vars.GOOGLE_CALENDAR_NAME }}
         run: |
           docker run --rm \
-            -e TZ=Europe/Madrid \
-            -e ALLOWED_TEAMS=${{ env.ALLOWED_TEAMS }} \
-            -e ALLOWED_COMPETITIONS=${{ env.ALLOWED_COMPETITIONS }} \
-            -e SPECIAL_COMPETITIONS=${{ env.SPECIAL_COMPETITIONS }} \
-            -e SPECIAL_CHANNELS=${{ env.SPECIAL_CHANNELS }} \
-            -e GOOGLE_TOKEN=${{ env.GOOGLE_TOKEN }} \
-            -e GOOGLE_CALENDAR_NAME=${{ env.GOOGLE_CALENDAR_NAME }} \
+            -e TZ="Europe/Madrid" \
+            -e ALLOWED_TEAMS="${{ env.ALLOWED_TEAMS }}" \
+            -e ALLOWED_COMPETITIONS="${{ env.ALLOWED_COMPETITIONS }}" \
+            -e SPECIAL_COMPETITIONS="${{ env.SPECIAL_COMPETITIONS }}" \
+            -e SPECIAL_CHANNELS="${{ env.SPECIAL_CHANNELS }}" \
+            -e GOOGLE_TOKEN="${{ env.GOOGLE_TOKEN }}" \
+            -e GOOGLE_CALENDAR_NAME="${{ env.GOOGLE_CALENDAR_NAME }}" \
           ghcr.io/${{ env.GITHUB_REPOSITORY }}:${{ env.TAG_VERSION }}
