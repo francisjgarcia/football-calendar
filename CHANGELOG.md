@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.0.6](https://github.com/francisjgarcia/football-calendar/releases/v1.0.6) (2024-11-15)
+* [patch] Merge pull request #5 from francisjgarcia/dependabot/pip/src/google-auth-2.36.0 @francisjgarcia ([#5bfaaa4](https://github.com/francisjgarcia/football-calendar/commit/5bfaaa4cf57b29599bc650433326869fa2c29c74))
+* chore(deps): Bump google-auth from 2.35.0 to 2.36.0 in /src @francisjgarcia ([#fafc0e5](https://github.com/francisjgarcia/football-calendar/commit/fafc0e5030e861ebb28bbabdb5f9f791ea1f1028))
+
+
 ## [v1.0.5](https://github.com/francisjgarcia/football-calendar/releases/v1.0.5) (2024-11-15)
 * [patch] Merge pull request #7 from francisjgarcia/development @francisjgarcia ([#4861ff1](https://github.com/francisjgarcia/football-calendar/commit/4861ff1284b9bd384e6ff1d73d983e50a90ae751))
 * ci: Remove JSON in application summary @francisjgarcia ([#6c1d059](https://github.com/francisjgarcia/football-calendar/commit/6c1d059d2d6abce0f1e063dbb0e56bc2519eb627))
