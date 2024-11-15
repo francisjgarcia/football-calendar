@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.0.4](https://github.com/francisjgarcia/football-calendar/releases/v1.0.4) (2024-11-15)
+* [patch] Merge pull request #6 from francisjgarcia/development @francisjgarcia ([#f0e8a6a](https://github.com/francisjgarcia/football-calendar/commit/f0e8a6af6e8afe9d2eb1785524865faa473b35f8))
+* bug(spider): Fix posponed matches, changed hours to channels @francisjgarcia ([#a470a27](https://github.com/francisjgarcia/football-calendar/commit/a470a27c694510eab78115cfed7bff0b453567a5))
+* ci: Save application output to use in github actions summary @francisjgarcia ([#79ccca7](https://github.com/francisjgarcia/football-calendar/commit/79ccca74366706b8c6619a0e53ad8336ba565102))
+
+
 ## [v1.0.3](https://github.com/francisjgarcia/football-calendar/releases/v1.0.3) (2024-11-02)
 * [patch] Merge pull request #4 from francisjgarcia/development @francisjgarcia ([#913d001](https://github.com/francisjgarcia/football-calendar/commit/913d001b2952209bf413b62352a35db52bb7b007))
 * ci: Delete wrong needs jobs to run workflow @francisjgarcia ([#6d30ba2](https://github.com/francisjgarcia/football-calendar/commit/6d30ba29c3beb4891552ef695b7bec26a53a8178))
