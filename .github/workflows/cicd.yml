@@ -502,8 +502,9 @@ jobs:
             -e GOOGLE_CALENDAR_NAME='${{ env.GOOGLE_CALENDAR_NAME }}' \
           ghcr.io/${{ env.GITHUB_REPOSITORY }}:${{ env.TAG_VERSION }} \
           > application_output.log
+          sed '/All the matches in JSON format:/q' application_output.log | head -n -2 > clean_application_output.log
 
-          application_output=$(cat application_output.log)
+          application_output=$(cat clean_application_output.log)
           echo "application_output<<EOF" >> $GITHUB_ENV
           echo "$application_output" >> $GITHUB_ENV
           echo "EOF" >> $GITHUB_ENV
