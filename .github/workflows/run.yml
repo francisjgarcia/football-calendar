@@ -64,7 +64,7 @@ jobs:
             echo "- Application URL: ${{ env.APPLICATION_URL }}" >> $GITHUB_STEP_SUMMARY
           fi
 
-  run:
+  run-application:
     name: Run application
     needs: [setup]
     runs-on: ubuntu-latest
@@ -103,3 +103,18 @@ jobs:
             -e GOOGLE_TOKEN='${{ env.GOOGLE_TOKEN }}' \
             -e GOOGLE_CALENDAR_NAME='${{ env.GOOGLE_CALENDAR_NAME }}' \
           ghcr.io/${{ env.GITHUB_REPOSITORY }}:${{ env.TAG_VERSION }}
+          > application_output.log
+
+          application_output=$(cat application_output.log)
+          echo "application_output<<EOF" >> $GITHUB_ENV
+          echo "$application_output" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
+
+      - name: Create application summary
+        env:
+          APPLICATION_OUTPUT: ${{ env.application_output }}
+        run: |
+          echo "## Application summary" >> $GITHUB_STEP_SUMMARY
+          echo "Application has been executed successfully." >> $GITHUB_STEP_SUMMARY
+          echo "### Output:" >> $GITHUB_STEP_SUMMARY
+          echo "${{ env.APPLICATION_OUTPUT }}" >> $GITHUB_STEP_SUMMARY
