@@ -44,7 +44,7 @@ class FutbolSpider(scrapy.Spider):
 
             for day in days.css('tr'):
                 hour = day.css('td.hora::text').get()
-                if hour is None or hour.strip() in ["PD", "APLAZADO"]:
+                if hour is None or hour.strip() in ["PD"]:
                     self.logger.warning(
                         "Hour not found for this match, skipping."
                     )
@@ -62,6 +62,13 @@ class FutbolSpider(scrapy.Spider):
                 item['channels'] = day.css(
                     'td.canales > ul.listaCanales > li::text'
                 ).getall()
+
+                # Check if the match is postponed
+                if "APLAZADO" in item['channels']:
+                    self.logger.info(
+                        f"Match {item['local']} vs {item['visitor']}"
+                        "is postponed. Skipping.")
+                    continue
 
                 # Check if the match is from a team or competition of interest
                 if ((item['local'] in ALLOWED_TEAMS or
