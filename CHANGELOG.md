@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.7.0](https://github.com/francisjgarcia/football-calendar/releases/v1.7.0) (2025-01-25)
+* fix: Match skipping if some team is None @francisjgarcia ([#58a0237](https://github.com/francisjgarcia/football-calendar/commit/58a02371eaf66b34bc5657711193203ac1cbe4ed))
+
+
 ## [v1.6.0](https://github.com/francisjgarcia/football-calendar/releases/v1.6.0) (2025-01-25)
 * ci: Fix summary output @francisjgarcia ([#d564f83](https://github.com/francisjgarcia/football-calendar/commit/d564f83d25df9c0a0ea4d5a01df299e21b144f52))
 * ci: Show JSON directly at summary [skip ci] @francisjgarcia ([#a570c4d](https://github.com/francisjgarcia/football-calendar/commit/a570c4d1263cb79dd0288b4f820a85ee89b478b9))
