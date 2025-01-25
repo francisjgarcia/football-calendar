@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.6.0](https://github.com/francisjgarcia/football-calendar/releases/v1.6.0) (2025-01-25)
+* ci: Fix summary output @francisjgarcia ([#d564f83](https://github.com/francisjgarcia/football-calendar/commit/d564f83d25df9c0a0ea4d5a01df299e21b144f52))
+* ci: Show JSON directly at summary [skip ci] @francisjgarcia ([#a570c4d](https://github.com/francisjgarcia/football-calendar/commit/a570c4d1263cb79dd0288b4f820a85ee89b478b9))
+* ci: Show JSON directly at summary [skip ci] @francisjgarcia ([#1fae383](https://github.com/francisjgarcia/football-calendar/commit/1fae38382fb9e94364b25e43d774b721d5068a3c))
+* ci: Show JSON directly at summary [skip ci] @francisjgarcia ([#677d498](https://github.com/francisjgarcia/football-calendar/commit/677d498aa62127109a82d32ae2733f7be2a3d4fb))
+* ci: Show JSON directly at summary @francisjgarcia ([#6df3ff7](https://github.com/francisjgarcia/football-calendar/commit/6df3ff75e92782913bef9ebe16a117c067002502))
+
+
 ## [v1.5.1](https://github.com/francisjgarcia/football-calendar/releases/v1.5.1) (2025-01-25)
 * [patch] Merge pull request #18 from francisjgarcia/development @francisjgarcia ([#e8c8df8](https://github.com/francisjgarcia/football-calendar/commit/e8c8df8ab68c4c6142419fae60e1c7218ad2b8c4))
 * ci: Fix summary output @francisjgarcia ([#ad89496](https://github.com/francisjgarcia/football-calendar/commit/ad894961f5cb8d09ce06a392a220163061b953ef))
