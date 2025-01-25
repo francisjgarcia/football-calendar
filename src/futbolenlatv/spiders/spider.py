@@ -55,6 +55,12 @@ class FutbolSpider(scrapy.Spider):
                 )
                 item['local'] = day.css('td.local > span::text').get()
                 item['visitor'] = day.css('td.visitante > span::text').get()
+                if item['local'] is None or item['visitor'] is None:
+                    self.logger.warning(
+                        "Local or visitor team not found for this match, "
+                        "skipping."
+                    )
+                    continue
                 item['competition'] = day.css(
                     'td.detalles > ul > li > div.contenedorImgCompeticion > '
                     'span.ajusteDoslineas > label::text'
