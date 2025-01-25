@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.5.1](https://github.com/francisjgarcia/football-calendar/releases/v1.5.1) (2025-01-25)
+* [patch] Merge pull request #18 from francisjgarcia/development @francisjgarcia ([#e8c8df8](https://github.com/francisjgarcia/football-calendar/commit/e8c8df8ab68c4c6142419fae60e1c7218ad2b8c4))
+* ci: Fix summary output @francisjgarcia ([#ad89496](https://github.com/francisjgarcia/football-calendar/commit/ad894961f5cb8d09ce06a392a220163061b953ef))
+
+
 ## [v1.5.0](https://github.com/francisjgarcia/football-calendar/releases/v1.5.0) (2025-01-21)
 * Merge pull request #17 from francisjgarcia/dependabot/pip/src/google-api-python-client-2.159.0 @francisjgarcia ([#c6d8763](https://github.com/francisjgarcia/football-calendar/commit/c6d8763e842cfa697ae81ab0100bfc8fb6415beb))
 * chore(deps): Bump google-api-python-client in /src @francisjgarcia ([#208de10](https://github.com/francisjgarcia/football-calendar/commit/208de1084d8682ae726bc2370e2764eb3c4dea2c))
