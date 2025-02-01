@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.8.0](https://github.com/francisjgarcia/football-calendar/releases/v1.8.0) (2025-02-01)
+* Merge pull request #19 from francisjgarcia/dependabot/pip/src/google-auth-2.38.0 @francisjgarcia ([#43b0c0f](https://github.com/francisjgarcia/football-calendar/commit/43b0c0f6caf3d2fb691aa73847d2d9377de1c5ab))
+* chore(deps): Bump google-auth from 2.37.0 to 2.38.0 in /src @francisjgarcia ([#0b2381f](https://github.com/francisjgarcia/football-calendar/commit/0b2381fbdca68a2b4bae6dd830b16a3ecba7fb22))
+
+
 ## [v1.7.0](https://github.com/francisjgarcia/football-calendar/releases/v1.7.0) (2025-01-25)
 * fix: Match skipping if some team is None @francisjgarcia ([#58a0237](https://github.com/francisjgarcia/football-calendar/commit/58a02371eaf66b34bc5657711193203ac1cbe4ed))
 
