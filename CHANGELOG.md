@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.8.3](https://github.com/francisjgarcia/football-calendar/releases/v1.8.3) (2025-02-17)
+* Merge pull request #22 from francisjgarcia/dependabot/pip/src/google-api-python-client-2.161.0 [patch] @francisjgarcia ([#88a06e0](https://github.com/francisjgarcia/football-calendar/commit/88a06e09601010c6b3d30170d415b23a3937d0fe))
+* chore(deps): Bump google-api-python-client in /src @francisjgarcia ([#8cc3198](https://github.com/francisjgarcia/football-calendar/commit/8cc319835053eadb95d8bb9d0e8a9bc83b990d01))
+
+
 ## [v1.8.2](https://github.com/francisjgarcia/football-calendar/releases/v1.8.2) (2025-02-17)
 * Merge pull request #21 from francisjgarcia/dependabot/pip/src/tzlocal-5.3 [patch] @francisjgarcia ([#88fca54](https://github.com/francisjgarcia/football-calendar/commit/88fca54f99cf05792271d1a0a193d134738e313f))
 * chore(deps): Bump tzlocal from 5.2 to 5.3 in /src @francisjgarcia ([#585368b](https://github.com/francisjgarcia/football-calendar/commit/585368bb200176ced9a7aac23db6c1f53c4bd663))
