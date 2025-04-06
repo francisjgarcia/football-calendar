@@ -97,6 +97,9 @@ class FutbolSpider(scrapy.Spider):
         Extract only the date from the given text in the format
         'Matches today Thursday, 01/01/1970'.
         """
+        if not raw_date:
+            return None  # Return None if raw_date is invalid
+
         if ',' in raw_date:
             # Take the part after the last comma
             return raw_date.split(',')[-1].strip()  # Return the clean date
