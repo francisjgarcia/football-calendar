@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.9.0](https://github.com/francisjgarcia/football-calendar/releases/v1.9.0) (2025-04-06)
+* style(google_calendar): fix indentation to align with style guide @francisjgarcia ([#760f22a](https://github.com/francisjgarcia/football-calendar/commit/760f22ac80d51d39c74e323432fdbc6188877945))
+* feat(scraper): integrate Google Calendar event creation @francisjgarcia ([#222c19d](https://github.com/francisjgarcia/football-calendar/commit/222c19de5f535316e2c1fe92cbdf2a08b9a77ad9))
+* feat(calendar): add functionality to handle event time changes @francisjgarcia ([#e0ab3a9](https://github.com/francisjgarcia/football-calendar/commit/e0ab3a90f3dd71317e7dcb4eb0f151423a67ac47))
+
+
 ## [v1.8.10](https://github.com/francisjgarcia/football-calendar/releases/v1.8.10) (2025-04-02)
 * Merge pull request #29 from francisjgarcia/dependabot/pip/src/python-dotenv-1.1.0 [patch] @francisjgarcia ([#1e50337](https://github.com/francisjgarcia/football-calendar/commit/1e5033786ab46c901cb16c99e1f70f3d00740a71))
 * chore(deps): Bump python-dotenv from 1.0.1 to 1.1.0 in /src @francisjgarcia ([#24d78e8](https://github.com/francisjgarcia/football-calendar/commit/24d78e86e4a09eddab3acbaf9bb6a262d435d758))
