@@ -23,8 +23,8 @@ def event_exists(service, calendar_id, summary, start_time, end_time):
     """Check if an event with the specified summary exists in the calendar."""
     events_result = service.events().list(
         calendarId=calendar_id,
-        timeMin=start_time.isoformat() + 'Z',  # 'Z' indicates UTC time
-        timeMax=end_time.isoformat() + 'Z',
+        timeMin=(start_time - timedelta(hours=1)).isoformat() + 'Z',
+        timeMax=(end_time + timedelta(hours=1)).isoformat() + 'Z',
         singleEvents=True,
         orderBy='startTime'
     ).execute()
@@ -32,8 +32,34 @@ def event_exists(service, calendar_id, summary, start_time, end_time):
     events = events_result.get('items', [])
     for event in events:
         if event['summary'] == summary:
-            return True
-    return False
+            event_start = datetime.fromisoformat(event['start']['dateTime'].replace('Z', '+00:00'))  # Convert to UTC
+            event_end = datetime.fromisoformat(event['end']['dateTime'].replace('Z', '+00:00'))  # Convert to UTC
+
+            # Normalize time zones
+            start_time_normalized = start_time.astimezone(event_start.tzinfo)
+            end_time_normalized = end_time.astimezone(event_end.tzinfo)
+
+            if event_start == start_time_normalized and event_end == end_time_normalized:
+                return False  # Event exists and time matches
+            return True  # Event exists but time differs
+    return None  # Event does not exist
+
+
+def get_event_id(service, calendar_id, summary, start_time, end_time):
+    """Get the ID of an event with the specified summary and time range."""
+    events_result = service.events().list(
+        calendarId=calendar_id,
+        timeMin=(start_time - timedelta(hours=1)).isoformat() + 'Z',
+        timeMax=(end_time + timedelta(hours=1)).isoformat() + 'Z',
+        singleEvents=True,
+        orderBy='startTime'
+    ).execute()
+
+    events = events_result.get('items', [])
+    for event in events:
+        if event['summary'] == summary:
+            return event['id']  # Return the event ID if found
+    return None  # Event not found
 
 
 def create_event(service, calendar_id, event_details):
@@ -46,6 +72,15 @@ def create_event(service, calendar_id, event_details):
         print(f"Event created: {event_result.get('htmlLink')}\n")
     except Exception as e:
         print(f"Error creating event: {e}\n")
+
+
+def delete_event(service, calendar_id, event_id):
+    """Delete an event from the specified calendar."""
+    try:
+        service.events().delete(calendarId=calendar_id, eventId=event_id).execute()
+        print(f"Event deleted successfully.")
+    except Exception as e:
+        print(f"Error deleting event: {e}")
 
 
 def create_calendar_event(match):
@@ -75,7 +110,7 @@ def create_calendar_event(match):
 
     if not calendar_id:
         print(f"The calendar '{calendar_name}' was not found.")
-        return
+        return False
 
     # Creating the event in Google Calendar
     start_time = match['datetime']
@@ -91,24 +126,44 @@ def create_calendar_event(match):
     else:
         description = 'TV'
 
-    if not event_exists(
+    time_changed = event_exists(
         service, calendar_id, summary,
-            datetime.fromisoformat(start_time),
-            datetime.fromisoformat(end_time)):
-        event = {
-            'summary': summary,
-            'location': location,
-            'description': description,
-            'start': {
-                'dateTime': start_time,
-                'timeZone': str(get_localzone()),
-            },
-            'end': {
-                'dateTime': end_time,
-                'timeZone': str(get_localzone()),
-            },
-        }
-        print(f"Event '{summary}' created in the calendar.")
+        datetime.fromisoformat(start_time),
+        datetime.fromisoformat(end_time)
+    )
+
+    event = {
+        'summary': summary,
+        'location': location,
+        'description': description,
+        'start': {
+            'dateTime': start_time,
+            'timeZone': str(get_localzone()),
+        },
+        'end': {
+            'dateTime': end_time,
+            'timeZone': str(get_localzone()),
+        },
+    }
+
+    if time_changed is None:
+        # If the event does not exist, create it
+        print(f"Event '{summary}' does not exist. Creating...")
         create_event(service, calendar_id, event)
-    else:
-        print(f"Event '{summary}' already exists in the calendar.\n")
+        return True
+    elif time_changed is True:
+        # If the event exists but the time has changed, delete and recreate it
+        print(f"Event '{summary}' already exists with different time. Recreating...")
+        existing_event_id = get_event_id(
+            service, calendar_id, summary,
+            datetime.fromisoformat(start_time),
+            datetime.fromisoformat(end_time)
+        )
+        if existing_event_id:
+            delete_event(service, calendar_id, existing_event_id)
+        create_event(service, calendar_id, event)
+        return True
+    elif time_changed is False:
+        # If the event exists and the time has not changed, skip creation
+        print(f"Event '{summary}' already exists.")
+        return False
