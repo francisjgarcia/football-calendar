@@ -32,14 +32,17 @@ def event_exists(service, calendar_id, summary, start_time, end_time):
     events = events_result.get('items', [])
     for event in events:
         if event['summary'] == summary:
-            event_start = datetime.fromisoformat(event['start']['dateTime'].replace('Z', '+00:00'))  # Convert to UTC
-            event_end = datetime.fromisoformat(event['end']['dateTime'].replace('Z', '+00:00'))  # Convert to UTC
+            event_start = datetime.fromisoformat(
+                event['start']['dateTime'].replace('Z', '+00:00'))
+            event_end = datetime.fromisoformat(
+                event['end']['dateTime'].replace('Z', '+00:00'))
 
             # Normalize time zones
             start_time_normalized = start_time.astimezone(event_start.tzinfo)
             end_time_normalized = end_time.astimezone(event_end.tzinfo)
 
-            if event_start == start_time_normalized and event_end == end_time_normalized:
+            if event_start == start_time_normalized and \
+               event_end == end_time_normalized:
                 return False  # Event exists and time matches
             return True  # Event exists but time differs
     return None  # Event does not exist
@@ -77,8 +80,10 @@ def create_event(service, calendar_id, event_details):
 def delete_event(service, calendar_id, event_id):
     """Delete an event from the specified calendar."""
     try:
-        service.events().delete(calendarId=calendar_id, eventId=event_id).execute()
-        print(f"Event deleted successfully.")
+        service.events().delete(
+            calendarId=calendar_id, eventId=event_id
+        ).execute()
+        print("Event deleted successfully.")
     except Exception as e:
         print(f"Error deleting event: {e}")
 
@@ -153,7 +158,9 @@ def create_calendar_event(match):
         return True
     elif time_changed is True:
         # If the event exists but the time has changed, delete and recreate it
-        print(f"Event '{summary}' already exists with different time. Recreating...")
+        print(
+            f"Event '{summary}' exists with a different time. "
+            "Recreating...")
         existing_event_id = get_event_id(
             service, calendar_id, summary,
             datetime.fromisoformat(start_time),
