@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.9.1](https://github.com/francisjgarcia/football-calendar/releases/v1.9.1) (2025-04-21)
+* Merge pull request #32 from francisjgarcia/development [patch] @francisjgarcia ([#a87ec15](https://github.com/francisjgarcia/football-calendar/commit/a87ec15d71fdb5bf650af3386d9176acba7776bb))
+* Merge pull request #30 from francisjgarcia/dependabot/pip/src/google-auth-2.39.0 @francisjgarcia ([#76f183f](https://github.com/francisjgarcia/football-calendar/commit/76f183fec2d16be8118e8961107c4715e3195e5e))
+* Merge branch 'development' into dependabot/pip/src/google-auth-2.39.0 @francisjgarcia ([#adc21af](https://github.com/francisjgarcia/football-calendar/commit/adc21afa0938d6ad573b53f65947d5c1f619e996))
+* Merge pull request #31 from francisjgarcia/dependabot/pip/src/google-api-python-client-2.167.0 @francisjgarcia ([#d4c6b9e](https://github.com/francisjgarcia/football-calendar/commit/d4c6b9e78130ebfb081131187196ea474a5a0eb4))
+* chore(deps): Bump google-api-python-client in /src @francisjgarcia ([#d9ccf6b](https://github.com/francisjgarcia/football-calendar/commit/d9ccf6b16ad26d9441c096f0a70ca84bf6cc7145))
+* chore(deps): Bump google-auth from 2.38.0 to 2.39.0 in /src @francisjgarcia ([#138b12d](https://github.com/francisjgarcia/football-calendar/commit/138b12da505232978b50ec4880675f4116baddbb))
+
+
 ## [v1.9.0](https://github.com/francisjgarcia/football-calendar/releases/v1.9.0) (2025-04-06)
 * style(google_calendar): fix indentation to align with style guide @francisjgarcia ([#760f22a](https://github.com/francisjgarcia/football-calendar/commit/760f22ac80d51d39c74e323432fdbc6188877945))
 * feat(scraper): integrate Google Calendar event creation @francisjgarcia ([#222c19d](https://github.com/francisjgarcia/football-calendar/commit/222c19de5f535316e2c1fe92cbdf2a08b9a77ad9))
