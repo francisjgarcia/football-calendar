@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.9.6](https://github.com/francisjgarcia/football-calendar/releases/v1.9.6) (2025-06-02)
+* Merge pull request #41 from francisjgarcia/dependabot/pip/src/scrapy-2.13.1 [patch] @francisjgarcia ([#d2c6380](https://github.com/francisjgarcia/football-calendar/commit/d2c638013697e8b7d8021d81a5729d914369bccf))
+* chore(deps): Bump scrapy from 2.13.0 to 2.13.1 in /src @francisjgarcia ([#449c224](https://github.com/francisjgarcia/football-calendar/commit/449c22432f755a1873bb27c74417dde23ad99905))
+
+
 ## [v1.9.5](https://github.com/francisjgarcia/football-calendar/releases/v1.9.5) (2025-05-30)
 * Merge pull request #40 from francisjgarcia/development [patch] @francisjgarcia ([#229ce78](https://github.com/francisjgarcia/football-calendar/commit/229ce7851b0336679d9a4efe77285065acfb79e4))
 * Merge pull request #38 from francisjgarcia/dependabot/pip/src/google-api-python-client-2.170.0 @francisjgarcia ([#b0058b3](https://github.com/francisjgarcia/football-calendar/commit/b0058b33c0ae6378a77d49f822bc12e7562ab6e4))
