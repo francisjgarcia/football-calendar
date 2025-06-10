@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.9.7](https://github.com/francisjgarcia/football-calendar/releases/v1.9.7) (2025-06-10)
+* Merge pull request #42 from francisjgarcia/dependabot/pip/src/google-auth-2.40.3 [patch] @francisjgarcia ([#ccefdd6](https://github.com/francisjgarcia/football-calendar/commit/ccefdd6c568e9a5305df9e07b3ee35e8c1e50a1c))
+* chore(deps): Bump google-auth from 2.40.2 to 2.40.3 in /src @francisjgarcia ([#741f7ce](https://github.com/francisjgarcia/football-calendar/commit/741f7ce40e9110c85392965f6c1b418dd10663a0))
+
+
 ## [v1.9.6](https://github.com/francisjgarcia/football-calendar/releases/v1.9.6) (2025-06-02)
 * Merge pull request #41 from francisjgarcia/dependabot/pip/src/scrapy-2.13.1 [patch] @francisjgarcia ([#d2c6380](https://github.com/francisjgarcia/football-calendar/commit/d2c638013697e8b7d8021d81a5729d914369bccf))
 * chore(deps): Bump scrapy from 2.13.0 to 2.13.1 in /src @francisjgarcia ([#449c224](https://github.com/francisjgarcia/football-calendar/commit/449c22432f755a1873bb27c74417dde23ad99905))
