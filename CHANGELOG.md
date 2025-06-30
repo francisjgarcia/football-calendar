@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.9.13](https://github.com/francisjgarcia/football-calendar/releases/v1.9.13) (2025-06-30)
+* Merge pull request #48 from francisjgarcia/dependabot/pip/src/python-dotenv-1.1.1 [patch] @francisjgarcia ([#f8a302f](https://github.com/francisjgarcia/football-calendar/commit/f8a302f0984e528bc05b203d986a52b40c24a79f))
+* chore(deps): Bump python-dotenv from 1.1.0 to 1.1.1 in /src @francisjgarcia ([#b589075](https://github.com/francisjgarcia/football-calendar/commit/b589075fce70bcd02e8ce05eb64a053658d293dd))
+
+
 ## [v1.9.12](https://github.com/francisjgarcia/football-calendar/releases/v1.9.12) (2025-06-30)
 * Merge pull request #47 from francisjgarcia/dependabot/pip/src/google-api-python-client-2.174.0 [patch] @francisjgarcia ([#7f17af5](https://github.com/francisjgarcia/football-calendar/commit/7f17af5bba9428947d8871f4c57353d0a573fc8e))
 * chore(deps): Bump google-api-python-client in /src @francisjgarcia ([#92ce1ba](https://github.com/francisjgarcia/football-calendar/commit/92ce1bacc4a1710cd03f4e50e3922c69991c26ae))
