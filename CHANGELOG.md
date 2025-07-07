@@ -1,5 +1,10 @@
 # Changelog
 
+## [v1.9.14](https://github.com/francisjgarcia/football-calendar/releases/v1.9.14) (2025-07-07)
+* Merge pull request #50 from francisjgarcia/dependabot/pip/src/scrapy-2.13.3 [patch] @francisjgarcia ([#337f008](https://github.com/francisjgarcia/football-calendar/commit/337f008985ec10d99adaf8038d0280b1b3854a09))
+* chore(deps): Bump scrapy from 2.13.2 to 2.13.3 in /src @francisjgarcia ([#252c876](https://github.com/francisjgarcia/football-calendar/commit/252c876429c19d7d56c5831fa445e451eebea713))
+
+
 ## [v1.9.13](https://github.com/francisjgarcia/football-calendar/releases/v1.9.13) (2025-06-30)
 * Merge pull request #48 from francisjgarcia/dependabot/pip/src/python-dotenv-1.1.1 [patch] @francisjgarcia ([#f8a302f](https://github.com/francisjgarcia/football-calendar/commit/f8a302f0984e528bc05b203d986a52b40c24a79f))
 * chore(deps): Bump python-dotenv from 1.1.0 to 1.1.1 in /src @francisjgarcia ([#b589075](https://github.com/francisjgarcia/football-calendar/commit/b589075fce70bcd02e8ce05eb64a053658d293dd))
